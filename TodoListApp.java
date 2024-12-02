@@ -11,13 +11,11 @@ public class TodoListApp extends JFrame {
     private JButton addButton, removeButton, completeButton;
 
     public TodoListApp() {
-        // Frame setup
         setTitle("Todo List Application");
         setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Table setup with checkboxes
         String[] columns = {"Task", "Status"};
         tableModel = new DefaultTableModel(columns, 0) {
             @Override
@@ -37,7 +35,6 @@ public class TodoListApp extends JFrame {
         JScrollPane scrollPane = new JScrollPane(taskTable);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Input panel
         JPanel inputPanel = new JPanel(new BorderLayout());
         taskInputField = new JTextField();
         addButton = new JButton("Add Task");
@@ -45,7 +42,6 @@ public class TodoListApp extends JFrame {
         inputPanel.add(addButton, BorderLayout.EAST);
         add(inputPanel, BorderLayout.NORTH);
 
-        // Button panel
         JPanel buttonPanel = new JPanel(new FlowLayout());
         removeButton = new JButton("Remove Selected");
         completeButton = new JButton("Mark as Complete");
@@ -53,7 +49,6 @@ public class TodoListApp extends JFrame {
         // buttonPanel.add(completeButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // Action Listeners
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
